@@ -1,6 +1,6 @@
 # This is a workflow that will automatically sync your Peloton rides with Garmin
 
-name: Sync workflow
+name: Sync workouts with Garmin
 
 # Controls when the action will run.
 on:
@@ -8,12 +8,12 @@ on:
     inputs:
       workoutsToDownload:
         type: number
-        default: "5"
+        default: "10"
       saveLocalCopy:
         type: boolean
         default: false
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 8-20 * * *'
 
 jobs:
   sync:
@@ -27,7 +27,7 @@ jobs:
     - run: mkdir -p ${{ env.OUTPUT_DIR }}
     - name: Create config file
       env:
-        DEFAULT_WORKOUT_NUM: 5
+        DEFAULT_WORKOUT_NUM: 10
       run: |
         cat <<EOT > /app/configuration.local.json 
         {
