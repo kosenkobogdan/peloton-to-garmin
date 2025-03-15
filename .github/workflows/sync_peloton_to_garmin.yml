@@ -1,6 +1,6 @@
 # This is a workflow that will automatically sync your Peloton rides with Garmin
 
-name: 🔄 Sync Workflow
+name: 🔄 Sync workouts with Garmin
 
 # Controls when the action will run.
 on:
@@ -13,11 +13,11 @@ on:
         type: boolean
         default: false
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 13-23 * * *'
 
 jobs:
   sync:
-    name: 🔄 Sync
+    name: 🔄 Sync workouts with Garmin job
     runs-on: ubuntu-latest
     # The type of runner that the job will run on
     container: 
